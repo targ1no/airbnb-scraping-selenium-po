@@ -13,7 +13,7 @@ class ResultsPage(Browser):
         sleep(2)
         return self.driver.find_element(By.XPATH, ResultsPageElements.TITLE_TEXT).text
 
-    def get_accommodations_info(self):
+    def get_accommodations_info_csv(self):
         sleep(3)
         page_content = self.driver.page_source 
         site = BeautifulSoup(page_content, 'html.parser')  
@@ -35,5 +35,9 @@ class ResultsPage(Browser):
             night_prop_price = _property.find('span', attrs={'class': '_tyxjp1'})
 
             property_list.append([prop_url, prop_name.text, prop_desc, night_prop_price.text])
+
+        # Saving in CSV
+        property_list = pd.DataFrame(property_list)
+        property_list.to_csv('properties.csv', header=False, sep=';', mode='a', index=False, encoding='utf8')
 
 

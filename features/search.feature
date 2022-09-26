@@ -13,5 +13,4 @@ Funcionalidade: fluxo de busca no Airbnb
     @accommodation
     Cenario: pegar informoações das acomodações de todas as páginas disponíveis
         Dado que tenho retorno com sucesso do resultado da pesquisa
-        #Entao devo guardar, em uma lista, as informações obtidas
-        #E salvar, na pasta raíz, um csv com o resultado
+        Entao devo salvar, na pasta raíz, um csv com o resultado

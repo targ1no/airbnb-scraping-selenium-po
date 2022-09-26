@@ -16,13 +16,7 @@ def step_impl(context):
     header_page.input_search('Fortaleza')
     header_page.search_btn()
     assert_equal(results_page.get_title_text(), 'Fortaleza - CE')
-    
-    results_page.get_accommodations_info()
 
-@then(u'devo guardar, em uma lista, as informações obtidas')
+@then(u'devo salvar, na pasta raíz, um csv com o resultado')
 def step_impl(context):
-    pass
-
-@then(u'salvar, na pasta raíz, um csv com o resultado')
-def step_impl(context):
-    pass
+    results_page.get_accommodations_info_csv()
