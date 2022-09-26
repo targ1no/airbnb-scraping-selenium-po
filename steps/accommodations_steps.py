@@ -9,22 +9,20 @@ utils = Utils()
 header_page = HeaderPage()
 results_page = ResultsPage()
 
-@given(u'que acesso site do airbnb')
+@given(u'que tenho retorno do resultado da pesquisa')
 def step_impl(context):
     utils.navigate('https://www.airbnb.com.br/')
-
-@given(u'clico no input de pesquisa')
-def step_impl(context):
     header_page.where_btn()
-
-@given(u'preencho o input de pesquisa')
-def step_impl(context):
     header_page.input_search('Fortaleza')
-
-@when(u'clico no botão de busca')
-def step_impl(context):
     header_page.search_btn()
-
-@then(u'devo visualizar o resultado da pesquisa')
-def step_impl(context):
     assert_equal(results_page.get_title_text(), 'Fortaleza - CE')
+    
+    results_page.get_accommodations_info()
+
+@then(u'devo guardar as informações obtidas em uma lista')
+def step_impl(context):
+    pass
+
+@then(u'e salvar em csv na pasta raíz')
+def step_impl(context):
+    pass
