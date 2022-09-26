@@ -9,7 +9,7 @@ utils = Utils()
 header_page = HeaderPage()
 results_page = ResultsPage()
 
-@given(u'que tenho retorno do resultado da pesquisa')
+@given(u'que tenho retorno com sucesso do resultado da pesquisa')
 def step_impl(context):
     utils.navigate('https://www.airbnb.com.br/')
     header_page.where_btn()
@@ -19,10 +19,10 @@ def step_impl(context):
     
     results_page.get_accommodations_info()
 
-@then(u'devo guardar as informações obtidas em uma lista')
+@then(u'devo guardar, em uma lista, as informações obtidas')
 def step_impl(context):
     pass
 
-@then(u'e salvar em csv na pasta raíz')
+@then(u'salvar, na pasta raíz, um csv com o resultado')
 def step_impl(context):
     pass

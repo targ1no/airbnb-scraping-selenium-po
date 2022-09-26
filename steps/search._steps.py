@@ -25,6 +25,6 @@ def step_impl(context):
 def step_impl(context):
     header_page.search_btn()
 
-@then(u'devo visualizar o resultado da pesquisa')
+@then(u'devo ter uma busca com sucesso')
 def step_impl(context):
     assert_equal(results_page.get_title_text(), 'Fortaleza - CE')
